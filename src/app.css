@@ -1,0 +1,106 @@
+@import "../node_modules/modern-normalize/modern-normalize.css";
+
+html {
+  font-family:
+    "Tanohe Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+}
+
+.flex {
+  display: flex;
+  gap: calc(var(--spacing) * 2);
+}
+
+body {
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+:root {
+  --spacing: 0.25rem; /* TODO: check in tailwind if value is correct. */
+
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+
+  --text-xl: 1.25rem;
+  --text-xl--line-height: calc(1.75 / 1.25);
+
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: calc(2 / 1.5) --color-primary-50: #fff5f2;
+  --color-primary-100: #fff1ee;
+  --color-primary-200: #ffe4de;
+  --color-primary-300: #ffd5cc;
+  --color-primary-400: #ffbcad;
+  --color-primary-500: #fe795d;
+  --color-primary-600: #ef562f;
+  --color-primary-700: #eb4f27;
+  --color-primary-800: #cc4522;
+  --color-primary-900: #a5371b;
+
+  --color-charcoal-830: hsla(230, 7%, 17%, 1.00);
+  --color-charcoal-300: hsla(230, 7%, 70%, 1.00);
+  --color-charcoal-250-70: hsla(230, 7%, 75%, 0.70);
+  --color-charcoal-250-25: hsla(230, 7%, 75%, 0.25);
+  --color-charcoal-250-20: hsla(230, 7%, 75%, 0.20);
+  --color-charcoal-250-15: hsla(230, 7%, 75%, 0.15);
+  --color-charcoal-250-10: hsla(230, 7%, 75%, 0.10);
+  --color-charcoal-250: hsla(230, 7%, 75%, 1.00);
+  --color-charcoal-200: hsla(230, 7%, 80%, 1.00);
+  --color-charcoal-150: hsla(230, 7%, 85%, 1.00);
+  --color-charcoal-1000-20: hsla(230, 7%, 0%, 0.20);
+
+  --color-base: var(--color-charcoal-830);
+  --color-darken: var(--color-charcoal-1000-20);
+  --color-primary-dark: var(--color-charcoal-300);
+  --color-primary-default: var(--color-charcoal-250);
+  --color-primary-light: var(--color-charcoal-200);
+  --color-primary-lighter: var(--color-charcoal-150);
+  --color-shade-low: var(--color-charcoal-250-10);
+  --color-shade-default: var(--color-charcoal-250-15);
+  --color-shade-high: var(--color-charcoal-250-20);
+  --color-shade-higher: var(--color-charcoal-250-25);
+  --color-shade-highest: var(--color-charcoal-250-70);
+  --color-text: var(--color-charcoal-830);
+
+  --color-base-bg: var(--color-base);
+  --color-base-shadow: var(--color-darken);
+
+  --color-btn-bg-active: var(--color-primary-lighter);
+  --color-btn-bg-default: var(--color-primary-dark);
+  --color-btn-bg-focus: var(--color-primary-light);
+  --color-btn-bg-hover: var(--color-primary-default);
+  --color-btn-fg: var(--color-text);
+
+  --color-container-bg-active: var(--color-shade-higher);
+  --color-container-bg-default: var(--color-shade-low);
+  --color-container-bg-focus: var(--color-shade-high);
+  --color-container-bg-hover: var(--color-shade-default);
+  --color-container-fg: var(--color-primary-default);
+
+  --color-input-bg-active: var(--color-shade-higher);
+  --color-input-bg-default: var(--color-shade-low);
+  --color-input-bg-focus: var(--color-shade-high);
+  --color-input-bg-hover: var(--color-shade-default);
+  --color-input-fg: var(--color-primary-default);
+
+  --color-monitor-bg: var(--color-darken);
+  --color-monitor-fg: var(--color-shade-highest);
+
+  --color-groove-fg: var(--color-shade-low);
+  --color-label-fg: var(--color-shade-highest);
+}
+
+.dummy {
+  /* make font-magician happy */
+  font-family: "Tanohe Sans";
+}
