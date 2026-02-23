@@ -15,20 +15,20 @@ import type {
 const userAgent = "tsanona@gmail.com";
 const client = createClient(withRetrying(vbbProfile), userAgent);
 
-export interface NearbyArgs {
+export interface NearByArgs {
   location: Location;
   options?: NearByOptions;
 }
 
 export const nearby = query(
-  typia.createValidate<NearbyArgs>(),
-  async (nearbyArgs: NearbyArgs) => {
+  typia.createValidate<NearByArgs>(),
+  async (nearbyArgs: NearByArgs) => {
     let { location, options } = nearbyArgs;
     return await client.nearby(location, options);
   },
 );
 
-export type StationType = Stop | Station;
+export type StationType = Station | Stop | Location;
 
 export interface DepartureArgs {
   station: StationType;
@@ -39,6 +39,10 @@ export const departures = query(
   typia.createValidate<DepartureArgs>(),
   async (departureArgs: DepartureArgs) => {
     let { station, options } = departureArgs;
-    return await client.departures(station, options);
+    try {
+      return await client.departures(station, options);
+    } catch {
+      throw Error("Failed to fetch departures!")
+    }
   },
 );

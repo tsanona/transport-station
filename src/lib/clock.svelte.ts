@@ -1,14 +1,17 @@
-export class Clock {
-  currentTime = $state(Date.now());
-  clockTimer: ReturnType<typeof setTimeout>;
-  private updateClockTimer = () =>
-    setTimeout(this.updateClock, 1000 - (this.currentTime % 1000));
-  private updateClock = () => {
-    this.currentTime = Date.now();
-    this.clockTimer = this.updateClockTimer();
-  };
+import { onDestroy, onMount } from "svelte";
 
-  constructor() {
-    this.clockTimer = this.updateClockTimer();
-  }
+let timestamp = $state(Date.now());
+let clockTimer = updateClockTimer();
+
+function updateClockTimer(): ReturnType<typeof setTimeout> {
+  return setTimeout(updateClock, 1000 - (timestamp % 1000))
+}
+
+function updateClock() {
+  timestamp = Date.now();
+  clockTimer = updateClockTimer();
+}
+
+export function now(): number {
+  return timestamp
 }

@@ -1,18 +1,14 @@
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
-    import { Clock } from '$lib/clock.svelte';
-
+    import { now } from "$lib/clock.svelte";
     let { title }: { title: string } = $props();
 
-    const clock = new Clock()
-
-    onDestroy(() => {clearTimeout(clock.clockTimer)})
+    const currentTime = $derived.by(now)
 </script>
 
 <div id="banner" class="flex">
     <div>{title}</div>
     <div id="clock">
-        {(new Date(clock.currentTime + 500)).toLocaleString("en-CA", {
+        {(new Date(currentTime + 500)).toLocaleString("en-CA", {
             weekday: "long",
             year: "numeric",
             month: "2-digit",
