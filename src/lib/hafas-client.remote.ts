@@ -3,7 +3,7 @@ import typia from "typia";
 
 import { createClient } from "hafas-client";
 import { withRetrying } from "hafas-client/retry";
-import { profile as vbbProfile } from "hafas-client/p/vbb/index";
+import { profile } from "hafas-client/p/bvg/index";
 import type {
   DeparturesArrivalsOptions,
   Location,
@@ -13,7 +13,7 @@ import type {
 } from "hafas-client";
 
 const userAgent = "tsanona@gmail.com";
-const client = createClient(withRetrying(vbbProfile), userAgent);
+const client = createClient(withRetrying(profile), userAgent);
 
 export interface NearByArgs {
   location: Location;
@@ -42,7 +42,7 @@ export const departures = query(
     try {
       return await client.departures(station, options);
     } catch {
-      throw Error("Failed to fetch departures!")
+      throw Error("Failed to fetch departures!");
     }
   },
 );

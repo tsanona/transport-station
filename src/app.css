@@ -27,8 +27,8 @@ ul {
 }
 
 p {
-    margin-top: 0;
-    margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 :root {
@@ -41,7 +41,9 @@ p {
   --text-xl--line-height: calc(1.75 / 1.25);
 
   --text-2xl: 1.5rem;
-  --text-2xl--line-height: calc(2 / 1.5) --color-primary-50: #fff5f2;
+  --text-2xl--line-height: calc(2 / 1.5) 
+  
+  --color-primary-50: #fff5f2;
   --color-primary-100: #fff1ee;
   --color-primary-200: #ffe4de;
   --color-primary-300: #ffd5cc;

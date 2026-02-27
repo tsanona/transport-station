@@ -1,4 +1,4 @@
-import type { Alternative, Line } from "hafas-client";
+import type { Line } from "hafas-client";
 
 const TRANSPORT_COLOUR_MAP = new Map<string, string>([
   ["U1", "#7dad4c"],
@@ -26,6 +26,7 @@ const TRANSPORT_COLOUR_MAP = new Map<string, string>([
   ["S8", "#7dad4c"],
   ["S85", "#7dad4c"],
   ["S9", "#701c28"],
+  ["regional", "#be1414"],
   ["tram", "#be1414"],
   ["bus", "#95276e"],
   ["ferry", "#528dba"],
@@ -43,8 +44,9 @@ function selectLineColour(line?: Line): string | undefined {
 }
 
 export function lineSignetStyle(line?: Line): string {
-  let lineColour = selectLineColour(line);
+  const lineColour = selectLineColour(line);
+  const borderRadius = line?.product === "suburban" ? "border-radius: calc(infinity * 1px);" : ""
   return lineColour
-    ? `border-style: solid; border-color: ${lineColour}; background-color: ${lineColour};`
+    ? `border-style: solid; border-color: ${lineColour}; background-color: ${lineColour}; ${borderRadius}`
     : "border-style: none";
 }

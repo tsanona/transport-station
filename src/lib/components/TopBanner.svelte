@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { now } from "$lib/clock.svelte";
+    import { liveTicker } from "$lib/clock.svelte";
     let { title }: { title: string } = $props();
 
-    const currentTime = $derived.by(now)
+    const currentTime = $derived.by(liveTicker)
 </script>
 
 <div id="banner" class="flex">

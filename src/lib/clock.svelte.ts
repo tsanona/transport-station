@@ -1,17 +1,27 @@
-import { onDestroy, onMount } from "svelte";
+import { untrack } from "svelte";
 
-let timestamp = $state(Date.now());
-let clockTimer = updateClockTimer();
+let liveTimestamp = $state(Date.now());
+const liveMinutes = $derived(new Date(liveTimestamp).getMinutes());
+const minuteTimestamp = $derived.by(() => {
+  liveMinutes;
+  return untrack(() => liveTimestamp);
+});
 
 function updateClockTimer(): ReturnType<typeof setTimeout> {
-  return setTimeout(updateClock, 1000 - (timestamp % 1000))
+  return setTimeout(updateClock, 1000 - (liveTimestamp % 1000));
 }
 
+let clockTimer = updateClockTimer();
+
 function updateClock() {
-  timestamp = Date.now();
+  liveTimestamp = Date.now();
   clockTimer = updateClockTimer();
 }
 
-export function now(): number {
-  return timestamp
+export function liveTicker(): number {
+  return liveTimestamp;
+}
+
+export function minuteTicker(): number {
+  return minuteTimestamp;
 }
