@@ -8,31 +8,25 @@ html {
     "Noto Color Emoji";
   font-size: var(--text-base);
   line-height: var(--text-base--line-height);
+  background-color: var(--color-base-bg);
 }
 
 .flex {
   display: flex;
-  gap: calc(var(--spacing) * 2);
+  gap: var(--spacing-2);
 }
 
 body {
   flex-direction: column;
   align-items: stretch;
-  min-height: 100vh;
-}
-
-ul {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 0;
+  color: var(--color-container-fg);
+  height: 100vh;
+  overflow: clip;
 }
 
 :root {
   --spacing: 0.25rem; /* TODO: check in tailwind if value is correct. */
+  --spacing-2: calc(var(--spacing) * 2);
 
   --text-base: 1rem;
   --text-base--line-height: 1.5;
@@ -41,8 +35,8 @@ p {
   --text-xl--line-height: calc(1.75 / 1.25);
 
   --text-2xl: 1.5rem;
-  --text-2xl--line-height: calc(2 / 1.5) 
-  
+  --text-2xl--line-height: calc(2 / 1.5);
+
   --color-primary-50: #fff5f2;
   --color-primary-100: #fff1ee;
   --color-primary-200: #ffe4de;
@@ -105,9 +99,4 @@ p {
 
   --color-groove-fg: var(--color-shade-low);
   --color-label-fg: var(--color-shade-highest);
-}
-
-.dummy {
-  /* make font-magician happy */
-  font-family: "Tanohe Sans";
 }

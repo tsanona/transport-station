@@ -30,8 +30,8 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding-inline: calc(var(--spacing) * 2);
-        padding-block: calc(var(--spacing) * 2);
+        padding-inline: var(--spacing-2);
+        padding-block: var(--spacing);
     }
     
     #clock {

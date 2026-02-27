@@ -1,11 +1,5 @@
-import { untrack } from "svelte";
-
 let liveTimestamp = $state(Date.now());
-const liveMinutes = $derived(new Date(liveTimestamp).getMinutes());
-const minuteTimestamp = $derived.by(() => {
-  liveMinutes;
-  return untrack(() => liveTimestamp);
-});
+const minuteTimestamp = $derived(Math.floor(liveTimestamp / 60000.0) * 60000.0);
 
 function updateClockTimer(): ReturnType<typeof setTimeout> {
   return setTimeout(updateClock, 1000 - (liveTimestamp % 1000));

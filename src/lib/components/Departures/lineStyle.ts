@@ -45,7 +45,9 @@ function selectLineColour(line?: Line): string | undefined {
 
 export function lineSignetStyle(line?: Line): string {
   const lineColour = selectLineColour(line);
-  const borderRadius = line?.product === "suburban" ? "border-radius: calc(infinity * 1px);" : ""
+  const borderRadius = line?.product === "suburban" || line?.product === "bus"
+    ? "border-radius: calc(infinity * 1px);"
+    : "";
   return lineColour
     ? `border-style: solid; border-color: ${lineColour}; background-color: ${lineColour}; ${borderRadius}`
     : "border-style: none";
